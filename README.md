@@ -27,7 +27,7 @@
 - - README.md
 
 ## components
-![components structure of Todo list](todo-api\src\images\component_structure.png)
+![components structure of Todo list](./images/component_structure.png)
 
 ## live hosted
 - https://fahad123k.github.io/todo-api
