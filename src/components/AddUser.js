@@ -2,11 +2,12 @@ import React from 'react'
 
 const AddUser = ({ onAdd }) => {
 
+    // handle submit function
     const handleOnSubmit = (e) => {
         e.preventDefault();
         onAdd(e.target.name.value);
         e.target.name.value = "";
-        // e.target.email.value = "";
+
 
     }
 

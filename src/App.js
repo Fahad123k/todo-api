@@ -4,17 +4,20 @@ import User from './components/User';
 import AddUser from './components/AddUser';
 
 const App = () => {
-  // some constant and var gloabal
+  // some constant and global varibles and useState
   const [users, setUsers] = useState([]);
   const [upperLimit,addupperLimit] = useState(200);
   const jsonLink = 'https://jsonplaceholder.typicode.com/todos'
   var lowerLimit=195;
-  // upperLimit=200;
+
+  // useEffect for continous fetching api on component
   useEffect(() => {
     fetchData();
 
   }, [])
 
+
+  // fetching data arrow function
   const fetchData = async () => {
 
     await fetch(jsonLink)
@@ -25,7 +28,7 @@ const App = () => {
       })
   }
 
-  // add new user
+  // add new todo
   const onAdd = async (name, email) => {
 
     await fetch(jsonLink, {
@@ -56,7 +59,7 @@ const App = () => {
 
   }
 
-  // delelte user
+  // delelte todo
   const onDelete = async (id) => {
     await fetch(jsonLink + `/${id}`, {
       method: 'DELETE'
@@ -76,7 +79,7 @@ const App = () => {
     })
   }
 
-  // On edit function
+  // function to handle edit dummy api
   const handleEditTodos = async (editvalue,id) => {
     await fetch(jsonLink+`/${id}`, {
       method: 'PUT',
@@ -99,7 +102,7 @@ const App = () => {
       });
   }
 
-
+// switch check isDone or not
   const switchComplete = id => {
     const newUser = [...users];
     newUser.forEach((user, index) => {

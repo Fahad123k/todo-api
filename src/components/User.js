@@ -3,17 +3,20 @@ import './user.css'
 import { useState } from 'react'
 const User = ({ id, title, completed, onDelete, checkComplete, handleEditTodos }) => {
 
+    // using useState for swithing edit
     const [onEdit, setOnEdit] = useState(false)
     const [editValue, setEditValue] = useState(title);
 
+    // handle edit function
     const handleDelete = () => {
         onDelete(id);
     }
 
+    // handle edit function
     const handleOnEdit = () => {
         setOnEdit(true);
     }
-    
+    // handle save function
     const handleSave = () => {
         setOnEdit(false);
         if (editValue) {
@@ -24,6 +27,7 @@ const User = ({ id, title, completed, onDelete, checkComplete, handleEditTodos }
         }
     }
 
+    // if edit mode on
     if (onEdit) {
         return (
 
@@ -31,9 +35,9 @@ const User = ({ id, title, completed, onDelete, checkComplete, handleEditTodos }
 
                 <div className="listItems">
                     <input id={id} type="text" value={editValue} name="editValue"
-                        onChange={e=>setEditValue(e.target.value.toLocaleLowerCase())}
+                        onChange={e => setEditValue(e.target.value.toLocaleLowerCase())}
                     />
-                 
+
                 </div>
 
                 <span>
@@ -46,6 +50,7 @@ const User = ({ id, title, completed, onDelete, checkComplete, handleEditTodos }
         )
 
     }
+    // if edit mode off
     else {
 
         return (

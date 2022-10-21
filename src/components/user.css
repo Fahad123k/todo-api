@@ -1,3 +1,5 @@
+/* list design */
+
 .list{
     display: flex;
     max-width: 600px;
@@ -103,6 +105,8 @@ input[type="checkbox"]{
 .center button:hover{
     background-color: rgb(224, 42, 42);
 }
+
+/* media query starts */
 @media only screen and (max-width: 648px){
 
     .list{
@@ -261,3 +265,5 @@ input[type="checkbox"]{
     
 
 }
+
+/* media query ends */
