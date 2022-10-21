@@ -2,7 +2,7 @@
 
 
 
-## features
+## Features
 
 - Add new todos 
 - Delete todos  by post method
