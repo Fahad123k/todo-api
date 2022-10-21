@@ -6,9 +6,9 @@ import AddUser from './components/AddUser';
 const App = () => {
   // some constant and global varibles and useState
   const [users, setUsers] = useState([]);
-  const [upperLimit,addupperLimit] = useState(200);
+  const [upperLimit, addupperLimit] = useState(200);
   const jsonLink = 'https://jsonplaceholder.typicode.com/todos'
-  var lowerLimit=195;
+  var lowerLimit = 195;
 
   // useEffect for continous fetching api on component
   useEffect(() => {
@@ -34,7 +34,7 @@ const App = () => {
     await fetch(jsonLink, {
       method: 'POST',
       body: JSON.stringify({
-      title: name,
+        title: name,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -51,7 +51,7 @@ const App = () => {
       .then((data) => {
         setUsers((users) => [...users, data]);
         // upperLimit=upperLimit-1;
-        addupperLimit(upperLimit+1);
+        addupperLimit(upperLimit + 1);
       })
       .catch((err) => {
         console.log(err)
@@ -72,7 +72,7 @@ const App = () => {
         setUsers(users.filter((user) => {
           return user.id !== id;
         }))
-        addupperLimit(upperLimit-1);
+        addupperLimit(upperLimit - 1);
       }
     }).catch((err) => {
       console.log(err);
@@ -80,9 +80,9 @@ const App = () => {
   }
 
   // function to handle edit dummy api
-  const handleEditTodos = async (editvalue,id) => {
-    
-    await fetch(jsonLink+`/${id}`, {
+  const handleEditTodos = async (editvalue, id) => {
+
+    await fetch(jsonLink + `/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
         id: id,
@@ -95,19 +95,19 @@ const App = () => {
       .then((response) => response.json())
       .then((data) => {
         // console.log(data+"==udatedd ")
-        setUsers((users) => [...users,data])
-        alert(data.title+"  Edited at id-"+id)
+        setUsers((users) => [...users, data])
+        alert(data.title + "  Edited at id-" + id)
       })
       .catch((err) => {
         console.log(err)
       });
   }
 
-// switch check isDone or not
+  // switch check isDone or not
   const switchComplete = id => {
     const newUser = [...users];
     newUser.forEach((user, index) => {
-      if (index+1 === id) {
+      if (index + 1 === id) {
         user.completed = !user.completed;
       }
     })
@@ -122,8 +122,8 @@ const App = () => {
       <AddUser onAdd={onAdd} />
       <div className='allList'>
         {
-          users.slice(lowerLimit,upperLimit).map((user) => (
-            <User 
+          users.slice(lowerLimit, upperLimit).map((user) => (
+            <User
               id={user.id}
               key={user.id}
               title={user.title}
