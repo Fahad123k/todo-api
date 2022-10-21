@@ -4,8 +4,8 @@
 
 ## features
 
---Add new todos 
---Delete todos  but post method
+-Add new todos 
+-Delete todos  but post method
 --Edit on dummy call ny put method
 --Check and un check yours todos which is complited
 --Easly you can add new todo
