@@ -4,9 +4,9 @@ const AddUser = ({ onAdd }) => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        onAdd(e.target.name.value, e.target.email.value);
+        onAdd(e.target.name.value);
         e.target.name.value = "";
-        e.target.email.value = "";
+        // e.target.email.value = "";
 
     }
 
@@ -15,8 +15,6 @@ const AddUser = ({ onAdd }) => {
             <form onSubmit={handleOnSubmit}>
                 <h1>TODO LIST BY API</h1>
                 <input placeholder='Add Todo items' name='name' />
-                {/* <input placeholder='Email' name='email' /> */}
-                {/* <br/> */}
                 <button onSubmit={handleOnSubmit}>Add</button>
             </form>
         </div>

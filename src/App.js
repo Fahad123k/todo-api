@@ -10,6 +10,7 @@ const App = () => {
     fetchData();
 
   }, [])
+  
   const fetchData = async () => {
 
     await fetch(jsonLink)
@@ -26,8 +27,7 @@ const App = () => {
     await fetch(jsonLink, {
       method: 'POST',
       body: JSON.stringify({
-        name: name,
-        email: email
+      title: name,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -69,24 +69,29 @@ const App = () => {
     })
   }
 
-  const onEdit = async (id) => {
-    await fetch(jsonLink + `/${id}`, {
+  // On edit function
+  const handleEditTodos = async (editvalue,id) => {
+    await fetch(jsonLink+`/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
-        id: 1,
-        title: 'foo',
-        body: 'bar',
-        userId: 1,
+        id: id,
+        title: editvalue
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
       .then((response) => response.json())
-      .then((json) => console.log(json));
+      .then((data) => {
+        // console.log(data+"==udatedd ")
+        setUsers((users) => [...users,data])
+      })
+      .catch((err) => {
+        console.log(err)
+      });
   }
 
-  // switchComplete
+
   const switchComplete = id => {
     const newUser = [...users];
     newUser.forEach((user, index) => {
@@ -97,7 +102,7 @@ const App = () => {
     setUsers(newUser)
   }
   // print userss on console
-  console.log(users)
+  // console.log(users)
   return (
     <div className='App'>
       <h3>App based todo list</h3>
@@ -106,13 +111,13 @@ const App = () => {
       <div className='allList'>
         {
           users.map((user) => (
-            <User
+            <User 
               id={user.id}
               key={user.id}
               title={user.title}
               completed={user.completed}
               onDelete={onDelete}
-              onEdit={onEdit}
+              handleEditTodos={handleEditTodos}
               checkComplete={switchComplete}
             />
           ))}
