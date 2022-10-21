@@ -4,13 +4,17 @@ import User from './components/User';
 import AddUser from './components/AddUser';
 
 const App = () => {
+  // some constant and var gloabal
   const [users, setUsers] = useState([]);
+  const [upperLimit,addupperLimit] = useState(200);
   const jsonLink = 'https://jsonplaceholder.typicode.com/todos'
+  var lowerLimit=195;
+  // upperLimit=200;
   useEffect(() => {
     fetchData();
 
   }, [])
-  
+
   const fetchData = async () => {
 
     await fetch(jsonLink)
@@ -42,7 +46,9 @@ const App = () => {
         }
       })
       .then((data) => {
-        setUsers((users) => [...users, data])
+        setUsers((users) => [...users, data]);
+        // upperLimit=upperLimit-1;
+        addupperLimit(upperLimit+1);
       })
       .catch((err) => {
         console.log(err)
@@ -63,6 +69,7 @@ const App = () => {
         setUsers(users.filter((user) => {
           return user.id !== id;
         }))
+        addupperLimit(upperLimit-1);
       }
     }).catch((err) => {
       console.log(err);
@@ -84,7 +91,8 @@ const App = () => {
       .then((response) => response.json())
       .then((data) => {
         // console.log(data+"==udatedd ")
-        setUsers((users) => [...users,data])
+        // setUsers((users) => [...users,data])
+        alert(data.title+"  Edited at id-"+id)
       })
       .catch((err) => {
         console.log(err)
@@ -110,7 +118,7 @@ const App = () => {
       <AddUser onAdd={onAdd} />
       <div className='allList'>
         {
-          users.map((user) => (
+          users.slice(lowerLimit,upperLimit).map((user) => (
             <User 
               id={user.id}
               key={user.id}
