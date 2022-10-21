@@ -5,10 +5,10 @@
 ## features
 
 - Add new todos 
-- Delete todos  but post method
+- Delete todos  by post method
 - Edit on dummy call ny put method
-- Check and un check yours todos which is complited
-- Easly you can add new todo
+- Check and uncheck yours todos which is complited
+- Easily you can add new todo
 
 ## This app is component based
 - public
@@ -25,3 +25,10 @@
 - - package-lock.js
 - - package.json
 - - README.md
+
+
+## live hosted
+- https://fahad123k.github.io/todo-api
+
+## github repo 
+- https://github.com/Fahad123k/todo-api/tree/master
