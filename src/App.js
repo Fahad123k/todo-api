@@ -113,7 +113,7 @@ const App = () => {
   // console.log(users)
   return (
     <div className='App'>
-      <h3>App based todo list</h3>
+      <h3>CREATE YOUR TODO AS YOUR WISH</h3>
       <br />
       <AddUser onAdd={onAdd} />
       <div className='allList'>
