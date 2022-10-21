@@ -6,7 +6,7 @@
 
 - Add new todos 
 - Delete todos  by post method
-- Edit on dummy call ny put method
+- Edit on dummy call by put method
 - Check and uncheck yours todos which is complited
 - Easily you can add new todo
 
