@@ -14,7 +14,7 @@ const AddUser = ({ onAdd }) => {
         <div className='list center'>
             <form onSubmit={handleOnSubmit}>
                 <h1>TODO LIST BY API</h1>
-                <input placeholder='Add Todo items' name='name' />
+                <input placeholder='Add Todo items' name='name' required />
                 <button onSubmit={handleOnSubmit}>Add</button>
             </form>
         </div>
