@@ -29,7 +29,7 @@ const App = () => {
   }
 
   // add new todo
-  const onAdd = async (name, email) => {
+  const onAdd = async (name) => {
 
     await fetch(jsonLink, {
       method: 'POST',
@@ -81,6 +81,7 @@ const App = () => {
 
   // function to handle edit dummy api
   const handleEditTodos = async (editvalue,id) => {
+    
     await fetch(jsonLink+`/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -94,7 +95,7 @@ const App = () => {
       .then((response) => response.json())
       .then((data) => {
         // console.log(data+"==udatedd ")
-        // setUsers((users) => [...users,data])
+        setUsers((users) => [...users,data])
         alert(data.title+"  Edited at id-"+id)
       })
       .catch((err) => {
